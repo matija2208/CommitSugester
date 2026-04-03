@@ -1,0 +1,3 @@
+"3. VSCodeExtension"/commit-suggester/".vscode"
+"3. VSCodeExtension"/commit-suggester/"node_modules"
+*.gguf
