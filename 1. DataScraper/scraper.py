@@ -104,17 +104,14 @@ for i in range(len(owners)):
                 continue
 
             if(("Merge pull request") in message or ("Merge branch") in message):
-                if(mergeCounter < MERGE_MAX):
-                    mergeCounter += 1
-                else:
-                    continue
+                continue
 
             # 2. uzmi DIFF kao git output
             diff_url = f"https://api.github.com/repos/{OWNER}/{REPO}/commits/{sha}"
             diff_text = requests.get(diff_url, headers=HEADERS_DIFF).text
             if(len(diff_text) < 10 or len(diff_text) > 6000):
                 continue
-            instruction = ""
+            
             if(is_cc(message)):
                 ccCounter += 1
             
